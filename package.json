@@ -6,7 +6,7 @@
     "scripts": {
         "start": "npm run dev",
         "dev": "webpack serve --port 4200 --mode development --env development",
-        "build": "webpack --config webpack.prod.js"
+        "build": "webpack --config webpack.production.config.js"
     },
     "keywords": [],
     "author": "mvasim",
