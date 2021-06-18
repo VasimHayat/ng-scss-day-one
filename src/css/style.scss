@@ -1,0 +1,14 @@
+$font-stack: Helvetica,
+sans-serif;
+$primary-color: rgb(31, 13, 13);
+$primary-background:rgb(160, 148, 148);
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+    background-color: $primary-background;
+}
+
+.row {
+    display: -webkit-flex;
+    display: flex;
+}
