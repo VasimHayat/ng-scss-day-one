@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.ts',
@@ -32,10 +34,18 @@ module.exports = {
         clean: true,
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Production',
-            filename: 'index.html'
+        new CleanWebpackPlugin(),
 
+
+        // new CopyWebpackPlugin([{
+        //     patterns: [
+        //         { from: "**/*", to: 'dist' },
+        //     ],
+        // }]),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            inject: true,
+            template: path.resolve(__dirname, '', 'index.html'),
         }),
     ]
 };

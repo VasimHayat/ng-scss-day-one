@@ -1,4 +1,7 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/index.ts',
@@ -27,7 +30,14 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
+    },
+
+    devServer: {
+        contentBase: path.join(__dirname, "build"),
+        compress: true,
+        port: 4000,
     },
 };
